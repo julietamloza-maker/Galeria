@@ -1,0 +1,224 @@
+<html>
+<head>
+<script src="https://aframe.io/releases/1.7.1/aframe.min.js"></script>
+<script>
+ // Componente para abrir el panel de cada imagen
+ AFRAME.registerComponent('info-album', {
+ init: function () {
+ var el = this.el;
+ var panel = el.querySelector('.panel-detalle');
+ el.addEventListener('click', function () {
+ // Cerramos otros paneles que pudieran estar abiertos
+ var todos = document.querySelectorAll('.panel-detalle');
+ todos.forEach(p => p.setAttribute('visible', false));
+ // Abrimos el de esta imagen
+ panel.setAttribute('visible', true);
+ });
+ }
+ });
+</script>
+</head>
+<body>
+<a-scene>
+<a-entity light="type: ambient; intensity: 0.5"></a-entity>
+<a-entity light="type: directional; intensity: 0.7" position="0 5 -3"></a-entity>
+<a-plane position="0 0 0"
+rotation="-90 0 0"
+width="12"
+height="20"
+src="https://static5.depositphotos.com/1006187/527/i/450/depositphotos_5274564-stockphoto-floor.jpg">
+</a-plane>
+<a-box position="-6 2.5 0" width="0.2" height="5" depth="20"
+src="https://www.shutterstock.com/image-photo/detail-modern-cream-brick-wall-600nw2688366217.jpg"></a-box>
+<a-box position="6 2.5 0" width="0.2" height="5" depth="20"
+src="https://www.shutterstock.com/image-photo/detail-modern-cream-brick-wall-600nw2688366217.jpg"></a-box>
+<a-box position="0 2.5 -10" width="12" height="5" depth="0.2"
+src="https://www.shutterstock.com/image-photo/detail-modern-cream-brick-wall-600nw2688366217.jpg"></a-box>
+<a-box position="-4 2.5 10" width="4" height="5" depth="0.2"
+src="https://www.shutterstock.com/image-photo/detail-modern-cream-brick-wall-600nw2688366217.jpg"></a-box>
+<a-box position="4 2.5 10" width="4" height="5" depth="0.2"
+src="https://www.shutterstock.com/image-photo/detail-modern-cream-brick-wall-600nw2688366217.jpg"></a-box>
+<a-box id="cuadro-principal"
+position="0 2 -9.7"
+depth="0.1"
+height="2"
+width="1.7"
+color="#FFD700"
+animation="property: position; dir: alternate; dur: 2000; loop: true; to: 0 1.7 -9.7">
+</a-box>
+<a-entity light="type: ambient; intensity: 0.5"></a-entity>
+<a-entity light="type: directional; intensity: 0.7" position="0 8 -2"></a-entity>
+<a-entity light="type: spot; intensity: 1.2; angle: 45; penumbra: 0.4"
+position="0 3.5 -8"
+rotation="-45 0 0"></a-entity>
+<a-plane class="interactivo" info-album position="0 2 -9.5" rotation="0 360 0" width="1.5"
+height="1.8"
+src="https://i.scdn.co/image/ab67616d0000b2733825e6d4d02e4b4c0cec7e1d"
+animation="property: position; dir: alternate; dur: 2000; loop: true; to: 0 1.7 -9.5">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="BTS - Love Yourself\nEste álbum, lanzado en 2015, es una colección de temas
+que exploran el amor propio y la aceptación. Incluye éxitos como I Need U y Run, y combina
+géneros como pop y hip-hop. La narrativa se centra en la lucha interna y el crecimiento
+personal." align="center" width="2" position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Love Yourself-BTS" position="-1 3.45 -9.6"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="-5.8 2 -5" rotation="0 90 0" width="1.5"
+height="1.8"
+src="https://i.scdn.co/image/ab67616d0000b273d1cc54539b591b5c6866a101">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Mezmerize\nEste álbum de 2005 es conocido por su sonido distintivo y letras
+provocativas. Aborda temas políticos y sociales, con un enfoque en la crítica a la guerra y la
+opresión. Incluye canciones memorables como B.Y.O.B. y Question!." align="center" width="2"
+position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Mezmerize-System of a Down" position="-5.9 3.4 -3.5 " rotation="0 90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="-5.8 2 1.3" rotation="0 90 0" width="1.5"
+height="1.8"
+src="https://akamai.sscdn.co/letras/360x360/albuns/2/2/b/6/524521470234743.jpg">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Use Your Illusion\nLanzado en 1991 como un conjunto de dos álbumes, Use
+Your Illusion abarca una variedad de estilos musicales, desde baladas hasta hard rock. Las
+letras tratan sobre el amor, la pérdida y la vida en el camino, con clásicos como November Rain
+y Don't Cry." align="center" width="2" position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Use Your Illusion-Guns N' Roses" position="-5.9 3.4 3 " rotation="0 90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="-5.8 2 7" rotation="0 90 0" width="1.5"
+height="1.8"
+src="https://i.scdn.co/image/ab67616d0000b2730b1129853982ea17845d4eb6">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Around The Fur\nEste álbum de 1997 es un hito en el metal alternativo,
+combinando elementos de metal pesado y melodías suaves. Las letras son emocionales y a
+menudo crudas, con temas de amor y dolor, presentando canciones como My Own Summer
+(Shove It) y Be Quiet and Drive (Far Away)." align="center" width="2" position="0 0.1
+0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Around The Fur-Deftones" position="-5.9 3.4 8.2 " rotation="0 90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="5.8 2 -5" rotation="0 -90 0" width="1.5"
+height="1.8"
+src="https://i.scdn.co/image/ab67616d0000b2732df0d98a423025032d0db1f7">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">WDWWWWWWWW
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Blurryface\nLanzado en 2015, este álbum es un viaje introspectivo que trata
+sobre la ansiedad y la identidad. Con una mezcla de rock, rap y pop, incluye canciones
+populares como Stressed Out y Ride, explorando la dualidad de la vida moderna."
+align="center" width="2" position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Blurryface-Twenty One Pilots" position="5.8 3.4 -6.5 " rotation="0 -90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="5.8 2 1.3" rotation="0 -90 0" width="1.5"
+height="1.8"
+src="https://upload.wikimedia.org/wikipedia/en/4/4c/Cigarettes_After_Sex_-_Cry.png">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Cry\nEste álbum de 2019 es una colección de canciones etéreas y
+melancólicas que exploran el amor y la nostalgia. Con un sonido suave y atmosférico, incluye
+temas como Heavenly y Falling in Love, creando una experiencia íntima y reflexiva."
+align="center" width="2" position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Cry-Cigarettes After S*x" position="5.8 3.4 0 " rotation="0 -90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="5.8 2 7" rotation="0 -90 0" width="1.5"
+height="1.8"
+src="https://upload.wikimedia.org/wikipedia/en/2/2f/Panda_poetics.jpg">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Poetics\nLanzado en 2020, este álbum destaca por su fusión de géneros y
+letras poéticas que abordan la vida, el amor y la lucha personal. La producción es diversa,
+incorporando elementos de pop, rock y electrónica." align="center" width="2" position="0 0.1
+0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Poetics-PXANDX" position="5.6 3.4 6.2 " rotation="0 -90 0"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="-3.5 2 -9.6" rotation="0 0 0" width="1.5"
+height="1.8"
+src="https://i.scdn.co/image/ab67616d0000b2739b6ac98a52f62d5cb473da40">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="The Neighbourhood\nLanzado en 2021, este álbum presenta un sonido más
+maduro y experimental. Aborda temas de amor, desamor y la complejidad de las relaciones
+modernas, con un estilo que mezcla rock alternativo y R&B." align="center" width="2"
+position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Hard To Imagine...
+Changing-The Neighbourhood" position="-5 3.45 -9.6"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane class="interactivo" info-album position="3.5 2 -9.6" rotation="0 0 0" width="1.5"
+height="1.7"
+src="https://i.scdn.co/image/ab67616d0000b2731e792c9c9def609333ba1c9a">
+ <a-entity class="panel-detalle" visible="false" position="0 0 0.2">
+ <a-plane color="black" width="2.5" height="1" opacity="0.8"></a-plane>
+ <a-text value="Human Clay\nEste álbum de 1999 incluye algunos de los mayores éxitos de
+Creed, como Higher y With Arms Wide Open. Temáticamente, aborda la búsqueda de la
+espiritualidad y el sentido de la vida, con un enfoque en la lucha personal y la redención."
+align="center" width="2" position="0 0.1 0.01"></a-text>
+ <a-plane color="#cc0000" width="0.4" height="0.15" position="0 -0.3 0.02"
+class="interactivo" onclick="this.parentElement.setAttribute('visible', false)">
+ <a-text value="CERRAR" align="center" width="1.5"></a-text>
+ </a-plane>
+ </a-entity>
+</a-plane>
+<a-text value="Human Clay-Creed" position="2.5 3.4 -9.6"
+font="https://cdn.aframe.io/fonts/Exo2Bold.fnt"></a-text>
+<a-plane position="0 5 0"
+rotation="90 0 0"
+width="12"
+height="20"
+color="#9b9b9b">
+</a-plane>
+<a-sky color="#dddddd"></a-sky>
+<a-entity position="0 1.6 8">
+<a-camera wasd-controls-enabled="true" look-controls="true">
+ <a-entity cursor="fuse: false; rayOrigin: mouse;" raycaster="objects: .interactivo"></a-entity>
+</a-camera>
+</a-entity>
+</a-scene>
+</body>
+</html>
